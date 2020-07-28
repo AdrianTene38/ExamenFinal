@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+		crossorigin="anonymous"></link>
+</h:head>
+<body>
+
+	<h:form name="formulario">
+
+		<h:dataTable value="#{PacienteBean.listarPacientes}" var="paciente"
+			class="table" styleClass="table table-striped table-dark"
+			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+
+			<h:column>
+				<f:facet name="header">Cedula</f:facet>#{paciente.cedula}
+		</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:inputText value="#{paciente.nombre}" size="10"
+					rendered="#{paciente.editable}" />
+				<h:outputText value="#{paciente.nombre}"
+					rendered="#{not paciente.editable}" />
+			</h:column>
+
+<h:column>
+				<f:facet name="header">Apellido</f:facet>
+				<h:inputText value="#{paciente.apellido}" size="10"
+					rendered="#{paciente.editable}" />
+				<h:outputText value="#{paciente.apellido}"
+					rendered="#{not paciente.editable}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Correo</f:facet>
+				<h:inputText value="#{paciente.correo}" size="5"
+					rendered="#{paciente.editable}" />
+				<h:outputText value="#{paciente.correo}"
+					rendered="#{not paciente.editable}" />
+			</h:column>
+
+
+		</h:dataTable>
+	</h:form>
+
+
+
+</body>
+</html>
